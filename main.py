@@ -49,7 +49,7 @@ def main():
         value = float(nav_value[0])
         percent_full = value/CONFIG["OIL_TANK_CAPACITY"] * 100
     except Exception as e:
-        print(f"error: {str(e)}")
+        pprint(f"error: {str(e)}")
         percent_full = -1
 
     return {"value": percent_full}

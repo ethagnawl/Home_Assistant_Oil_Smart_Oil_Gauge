@@ -41,7 +41,7 @@ def main():
     nav_value = nav.split(r"/")
     browser.quit()
     pprint(f"values: {nav_value[0]}")
-    publish.single("oilgauge/tanklevel", nav_value[0], hostname="localhost", port=1883, auth={'username': CONFIG["MQTT_USERNAME"], 'password': CONFIG["MQTT_PASSWORD"]})
+    publish.single("oilgauge/tanklevel", nav_value[0], hostname=CONFIG["MQTT_HOSTNAME"], port=int(CONFIG["MQTT_PORT"]), auth={'username': CONFIG["MQTT_USERNAME"], 'password': CONFIG["MQTT_PASSWORD"]})
 
     display.stop()
 
@@ -61,4 +61,4 @@ def read_root():
     return main()
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=CONFIG["FAST_API_PORT"])
+    uvicorn.run(app, host="0.0.0.0", port=int(CONFIG["FAST_API_PORT"]))

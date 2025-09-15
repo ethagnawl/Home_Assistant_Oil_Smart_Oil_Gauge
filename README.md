@@ -49,3 +49,6 @@ command_line:
       command_timeout: 120
       scan_interval: 300
 ```
+
+
+<img width="503" height="641" alt="Screenshot from 2025-09-15 12-26-11-crop" src="https://github.com/user-attachments/assets/69ce4f36-d83a-4c75-bd95-0cae8dd3a765" />

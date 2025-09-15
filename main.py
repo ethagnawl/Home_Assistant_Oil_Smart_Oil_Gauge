@@ -7,9 +7,8 @@
 #   "paho-mqtt==2.1.0",
 #   "selenium==4.11.0",
 # ]
+# requires-python = "==3.12"
 # ///
-
-#   "webdriver-manager",
 
 import paho.mqtt.publish as publish
 import uvicorn

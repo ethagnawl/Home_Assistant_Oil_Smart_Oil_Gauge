@@ -51,4 +51,4 @@ command_line:
 ```
 
 
-<img width="503" height="641" alt="Screenshot from 2025-09-15 12-26-11-crop" src="https://github.com/user-attachments/assets/69ce4f36-d83a-4c75-bd95-0cae8dd3a765" />
+<img width="509" height="789" alt="Screenshot from 2025-09-16 11-53-47-crop" src="https://github.com/user-attachments/assets/5c6af3cf-3e0d-4164-a912-cfb54b4acbed" />

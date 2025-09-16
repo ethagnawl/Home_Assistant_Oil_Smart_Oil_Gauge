@@ -10,6 +10,7 @@
 # requires-python = "==3.12"
 # ///
 
+import json
 import paho.mqtt.publish as publish
 import uvicorn
 
@@ -37,11 +38,32 @@ def main():
     browser.find_element("class name", "btn").click()
     browser.implicitly_wait(5)
 
+
+
     nav = browser.find_element("xpath", '//p[contains(text(), "/")]').text
+
+    fill_level = browser.find_element("xpath", "//div[@class='ts_col ts_level']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
+    fill_level = fill_level.split(r"/")
+    current_fill_level = fill_level[0]
+    current_fill_proportion = round((float(str(fill_level[0])) / float(str(fill_level[1]))) * 100, 1)
+    battery_status = browser.find_element("xpath", "//div[@class='ts_col ts_battery']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
+    days_to_low = browser.find_element("xpath", "//div[@class='ts_col ts_days_to_low']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
+
     nav_value = nav.split(r"/")
     browser.quit()
-    pprint(f"values: {nav_value[0]}")
-    publish.single("oilgauge/tanklevel", nav_value[0], hostname=CONFIG["MQTT_HOSTNAME"], port=int(CONFIG["MQTT_PORT"]), auth={'username': CONFIG["MQTT_USERNAME"], 'password': CONFIG["MQTT_PASSWORD"]})
+    from datetime import datetime
+
+    results = {
+            "battery_status": battery_status,
+            "current_fill_level": current_fill_level,
+            "current_fill_proportion": current_fill_proportion,
+            "days_to_low": days_to_low,
+    }
+
+    pprint(f"{datetime.now()} - {results}")
+
+    msgs = [{"topic": "oilgauge/tanklevel", "payload": json.dumps(results)}]
+    publish.multiple(msgs, hostname=CONFIG["MQTT_HOSTNAME"], port=int(CONFIG["MQTT_PORT"]), auth={'username': CONFIG["MQTT_USERNAME"], 'password': CONFIG["MQTT_PASSWORD"]})
 
     display.stop()
 

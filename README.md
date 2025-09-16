@@ -30,11 +30,32 @@ This is a modified version of the upstream repo's MQTT config which adheres to H
 
 ```
 mqtt:
-  sensor:
-    name: "Oil level"
-    state_topic: "oilgauge/tanklevel"
-    unique_id: smart_oil_level_mqtt
-    unit_of_measurement: "gallons"
+  - sensor:
+      name: "Oil level"
+      state_topic: "oilgauge/tanklevel"
+      unique_id: "smart_oil_level_mqtt_gallons"
+      unit_of_measurement: "gallons"
+      value_template: '{{value_json.current_fill_level}}'
+
+  - sensor:
+      state_topic: "oilgauge/tanklevel"
+      value_template: '{{value_json.current_fill_proportion}}'
+      unit_of_measurement: "%"
+      name: "Oil level percent"
+      unique_id: "smart_oil_level_mqtt_percent"
+
+  - sensor:
+      state_topic: "oilgauge/tanklevel"
+      value_template: '{{value_json.battery_status}}'
+      name: "Oil level battery"
+      unique_id: "smart_oil_level_mqtt_battery_level"
+
+  - sensor:
+      state_topic: "oilgauge/tanklevel"
+      value_template: '{{value_json.days_to_low}}'
+      unit_of_measurement: "days"
+      name: "Oil level days to low"
+      unique_id: "smart_oil_level_mqtt_days_to_low"
 ```
 
 ##### CLI

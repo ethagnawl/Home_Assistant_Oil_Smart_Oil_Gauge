@@ -72,6 +72,4 @@ command_line:
       command_timeout: 120
       scan_interval: 300
 ```
-
-
-<img width="509" height="789" alt="Screenshot from 2025-09-16 11-53-47-crop" src="https://github.com/user-attachments/assets/5c6af3cf-3e0d-4164-a912-cfb54b4acbed" />
+<img width="509" height="739" alt="Screenshot from 2025-09-16 11-53-47-crop" src="https://github.com/user-attachments/assets/0e9d29cb-31e1-4532-8e46-31968296677f" />

@@ -1,5 +1,5 @@
 # Smart Oil Gauge in Home Assistant
-Web scraper for the Smart Oil Gauge to bring data into Home Assistant. This simple solution scrapes the Smart Oil Gauge website and sends a captured value via MQTT to a Home Assistant sensor.
+Web scraper for the Smart Oil Gauge to bring data into Home Assistant. This simple solution scrapes the Smart Oil Gauge website and sends a captured value via MQTT to Home Assistant sensors.
 
 This is a "modern" fork of https://github.com/marecotec/Home_Assistant_Oil_Smart_Oil_Gauge. That project is not licensed, so this project is provided as-is and I am not responsible for whatever you may do with it. 
 

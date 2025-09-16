@@ -8,7 +8,7 @@ This is still very much WIP.
 ### Dependencies
 1. Home Assistant
 2. MQTT server 
-3. Smart Oil Gauge sensor
+3. [Smart Oil Gauge sensor](https://shop.fuelsnap.com/products/ccf901i)
 4. UV
 5. Customized .env file
 

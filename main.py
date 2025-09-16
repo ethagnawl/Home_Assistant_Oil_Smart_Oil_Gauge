@@ -14,6 +14,7 @@ import json
 import paho.mqtt.publish as publish
 import uvicorn
 
+from datetime import datetime
 from dotenv import dotenv_values, load_dotenv
 from fastapi import FastAPI
 from pprint import pprint
@@ -51,7 +52,6 @@ def main():
 
     nav_value = nav.split(r"/")
     browser.quit()
-    from datetime import datetime
 
     results = {
             "battery_status": battery_status,

@@ -67,14 +67,7 @@ def main():
 
     display.stop()
 
-    try:
-        value = float(nav_value[0])
-        percent_full = value/CONFIG["OIL_TANK_CAPACITY"] * 100
-    except Exception as e:
-        pprint(f"error: {str(e)}")
-        percent_full = -1
-
-    return {"value": percent_full}
+    return results
 
 app = FastAPI()
 

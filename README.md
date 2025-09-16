@@ -17,7 +17,9 @@ Copy .env.sample to .env (.gitignored) and enter _your_ environmental informatio
 
 ### Architecture
 #### FastAPI server
-Exposes an HTTP route whose handler runs the oil gague scraping code, publishes an MQTT message with the reading and returns data to caller. My main.py script is a riff on oil.py but I would like to include some of the more sophisticated readings available in oil_multiple.py. Also, there is no authentication mechanism in place, so don't expose this to the world as it could potentially be abused. 
+Exposes an HTTP route whose handler runs the oil gague scraping code, publishes an MQTT message with the reading and returns data to caller. This fork's main.py script is a riff on the upstream oil_multiple.py script. So, have a look there if you want to see where this originates. 
+
+There is no authentication mechanism in place, so don't expose this to the world as it could potentially be abused!
 
 The script is run by UV which is responsible for managing the specified Python and package dependencies. I'm being lazy and manually running it inside a tmux pane but a more durable approach would be to create a systemd service which gracefully handles restarts, logging, etc.
 
